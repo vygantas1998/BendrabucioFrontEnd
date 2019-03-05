@@ -1,0 +1,17 @@
+.table {
+    font-size: 40px;
+    border-collapse: collapse;
+    background-color: white;
+}
+.table tbody tr td, .table thead tr th{
+    color: rgb(0, 0, 0);
+    border: 2px solid black;
+    padding: 20px;
+    border-radius: 20px;
+}
+.table tbody tr:nth-child(odd){
+    background-color: gray;
+}
+.table thead tr{
+    background-color: red;
+}
