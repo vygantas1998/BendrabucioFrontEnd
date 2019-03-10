@@ -4,7 +4,7 @@ import {Environment, Network, RecordSource, Store} from 'relay-runtime';
 import Main from '../Main/Main';
 
 function fetchQuery(operation, variables) {
-  return fetch('http://localhost:4000/graphql', {
+  return fetch('http://xdhm1zcmxa.nlnode.webrahost.eu/graphql', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ function fetchQuery(operation, variables) {
     }),
   }).then(response => {
     return response.json();
-  });
+  })
 }
 const modernEnvironment = new Environment({
   network: Network.create(fetchQuery),
