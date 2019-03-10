@@ -4,11 +4,12 @@ import {createFragmentContainer, graphql} from 'react-relay';
 import Table from '../Table/Table'
 class Main extends Component {
     render() {
-      return (
-        <div className={classes.Main}>
-            <Table/>
-        </div>
-      );
+        console.log(this.props);
+        return (
+            <div className={classes.Main}>
+                <Table/>
+            </div>
+        );
     }
 }
 export default createFragmentContainer(Main, {
