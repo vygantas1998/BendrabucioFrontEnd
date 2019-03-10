@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 4e561537a559e385bc5dde688bcb30ad
+ * @relayHash 3ef8313922a4669d141745f53c792f14
  */
 
 /* eslint-disable */
@@ -34,9 +34,9 @@ fragment Main_store on Store {
   washingMachines {
     edges {
       node {
-        id
         title
         image_url
+        id
       }
     }
   }
@@ -114,13 +114,6 @@ const node/*: ConcreteRequest*/ = {
                       {
                         "kind": "ScalarField",
                         "alias": null,
-                        "name": "id",
-                        "args": null,
-                        "storageKey": null
-                      },
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
                         "name": "title",
                         "args": null,
                         "storageKey": null
@@ -129,6 +122,13 @@ const node/*: ConcreteRequest*/ = {
                         "kind": "ScalarField",
                         "alias": null,
                         "name": "image_url",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "id",
                         "args": null,
                         "storageKey": null
                       }
@@ -146,7 +146,7 @@ const node/*: ConcreteRequest*/ = {
     "operationKind": "query",
     "name": "AppQuery",
     "id": null,
-    "text": "query AppQuery {\n  store {\n    ...Main_store\n  }\n}\n\nfragment Main_store on Store {\n  washingMachines {\n    edges {\n      node {\n        id\n        title\n        image_url\n      }\n    }\n  }\n}\n",
+    "text": "query AppQuery {\n  store {\n    ...Main_store\n  }\n}\n\nfragment Main_store on Store {\n  washingMachines {\n    edges {\n      node {\n        title\n        image_url\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };

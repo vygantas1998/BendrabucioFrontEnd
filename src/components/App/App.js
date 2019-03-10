@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
-import './App.css';
-import Table from '../Table/Table';
-=======
 import {QueryRenderer, graphql} from 'react-relay';
 import {Environment, Network, RecordSource, Store} from 'relay-runtime';
 import Main from '../Main/Main';
@@ -33,17 +29,10 @@ const appQuery = graphql`
     }
   }
 `
->>>>>>> origin/development
 
 class App extends Component {
   render() {
     return (
-<<<<<<< HEAD
-      <div className="App">
-      <Table/>
-          
-      </div>
-=======
       <QueryRenderer
         environment={modernEnvironment}
         query={appQuery}
@@ -56,7 +45,6 @@ class App extends Component {
           }
         }}
       />
->>>>>>> origin/development
     );
   }
 }

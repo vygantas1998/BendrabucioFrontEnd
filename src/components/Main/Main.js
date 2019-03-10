@@ -6,7 +6,7 @@ class Main extends Component {
     render() {
         return (
             <div className={classes.Main}>
-                <Table/>
+                <Table data={this.props.store.washingMachines.edges} header={["Pavadinimas", "Aprašymas", {value: "Nuotrauka", img: true}]}/>
             </div>
         );
     }
@@ -17,7 +17,6 @@ export default createFragmentContainer(Main, {
             washingMachines{
                 edges{
                     node{
-                        id
                         title
                         image_url
                     }

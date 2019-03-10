@@ -1,95 +1,41 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/development
 import React, { Component } from 'react';
 import classes from './Table.module.css';
+import TableRow from '../TableRow/TableRow';
 
 class Table extends Component {
-  render() {
-    return (
-      <div>
-        <table className={classes.table}>
-            <thead>
-                <tr>
-<<<<<<< HEAD
-                    <th>ID</th>
-                    <th>Pavadinimas</th>
-                    <th>Aprašymas</th>
-                    <th>Užsakyta iki</th>
-                    <th></th>
-                    <th>Cuteness over 9000</th>
-=======
-                    <th>Hello</th>
-                    <th>Hello</th>
-                    <th>Hello</th>
-                    <th>Hello</th>
-                    <th>Hello</th>
->>>>>>> origin/development
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-<<<<<<< HEAD
-                    <td><img src="https://media3.giphy.com/media/yXBqba0Zx8S4/200w.webp?cid=3640f6095c850267504446416344291e"/></td>
-                    
-=======
->>>>>>> origin/development
-                </tr>
-                <tr>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-<<<<<<< HEAD
-                    <td><img src="https://media3.giphy.com/media/3o6Zt3KyN0vd1S97d6/200w.webp?cid=3640f6095c850383344a576551df31c5"/></td>
-=======
->>>>>>> origin/development
-                </tr>
-                <tr>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-<<<<<<< HEAD
-                    <td><img src="https://media3.giphy.com/media/X8bKCalHrs7lTKqttE/200w.webp?cid=3640f6095c84f559433457576f74e5f3"/></td>
-=======
->>>>>>> origin/development
-                </tr>
-                <tr>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-<<<<<<< HEAD
-                    <td><img src="https://media0.giphy.com/media/4Zo41lhzKt6iZ8xff9/giphy.gif?cid=3640f6095c850202557178784946b204"/></td>
-=======
->>>>>>> origin/development
-                </tr>
-                <tr>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-                    <td>hi</td>
-<<<<<<< HEAD
-                    <td><img src="https://media1.giphy.com/media/gqjWADzYxnCCs/giphy.gif?cid=3640f6095c84fc4b536b57445510affc" alt="unicorn GIF"></img></td>
-=======
->>>>>>> origin/development
-                </tr>
-            </tbody>
-        </table>
-      </div>
-    );
-  }
+    state = {
+        headerKeys: Object.keys(this.props.data[0].node),
+        headerText: this.props.header || Object.keys(this.props.data[0].node)
+    }
+    getHeader = () => {
+        const columns = this.state.headerText.map((r,i) => {
+            if(typeof r === "object"){
+                r = r.value;
+            }
+            return <td key={i}>{r}</td>
+        })
+        return <tr>{columns}</tr>;
+    }
+    getLines = () => {
+        const lines = this.props.data.map((res, index) => {
+            return <TableRow key={index} data={res.node} headers={this.state.headerText}/>
+        })
+        return lines;
+    }
+    render() {
+        return (
+        <div>
+            <table className={classes.table}>
+                <thead>
+                    {this.getHeader()}
+                </thead>
+                <tbody>
+                    {this.getLines()}
+                </tbody>
+            </table>
+        </div>
+        );
+    }
 }
 
 export default Table;

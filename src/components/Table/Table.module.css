@@ -1,42 +1,22 @@
 .table {
-<<<<<<< HEAD
     margin:auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 20px;
     border-collapse: collapse;
     background-color: white;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Arimo', sans-serif;
 }
-.table tbody tr td, .table thead tr th{
+.table tbody tr td, .table thead tr td{
     color: #1F0322;
-    border-top: 1px solid white;
     padding: 20px;
 }
 .table tbody tr:nth-child(even){
     background-color: #fdf9ec;
 }
-.table thead tr th{
+.table thead tr td{
     background-color: #da4055;
     color: white;
 }
 .table img{
     width: 200px; 
-    border: 1px solid pink;
-=======
-    font-size: 40px;
-    border-collapse: collapse;
-    background-color: white;
-}
-.table tbody tr td, .table thead tr th{
-    color: rgb(0, 0, 0);
-    border: 2px solid black;
-    padding: 20px;
-    border-radius: 20px;
-}
-.table tbody tr:nth-child(odd){
-    background-color: gray;
-}
-.table thead tr{
-    background-color: red;
->>>>>>> origin/development
 }

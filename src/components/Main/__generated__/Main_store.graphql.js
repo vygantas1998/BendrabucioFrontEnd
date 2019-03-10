@@ -14,7 +14,6 @@ export type Main_store = {|
   +washingMachines: {|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +id: string,
         +title: ?string,
         +image_url: ?string,
       |}
@@ -62,13 +61,6 @@ const node/*: ReaderFragment*/ = {
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "name": "id",
-                  "args": null,
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
                   "name": "title",
                   "args": null,
                   "storageKey": null
@@ -89,5 +81,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '15c3b2d76b29a4d46c5a35f5b17c697a';
+(node/*: any*/).hash = 'cf972d1a1475afed8c97f7cadb994985';
 module.exports = node;
