@@ -1,0 +1,12 @@
+.tableField{
+    color: #1F0322;
+    padding: 20px;
+    max-width: 200px;
+}
+.tableField img{
+    width: 200px; 
+}
+.tableHeader{
+    background-color: #da4055;
+    color: white;
+}

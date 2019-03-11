@@ -1,0 +1,15 @@
+.tableRow:nth-child(even){
+    background-color: #fdf9ec;
+}
+.table tbody tr:nth-child(even){
+    background-color: #fdf9ec;
+}
+.table thead tr td{
+    color: #1F0322;
+    padding: 20px;
+    max-width: 200px;
+}
+.tableHeader{
+    background-color: #da4055;
+    color: white;
+}

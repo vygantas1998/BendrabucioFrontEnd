@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
-import classes from './Table.module.css';
+import classes from './Main.module.css';
 import TableRow from '../TableRow/TableRow';
 
-class Table extends Component {
+class Main extends Component {
     state = {
         headerKeys: Object.keys(this.props.data[0].node),
         headerText: this.props.header || Object.keys(this.props.data[0].node)
     }
     getHeader = () => {
-        const columns = this.state.headerText.map((r,i) => {
-            if(typeof r === "object"){
-                r = r.value;
-            }
-            return <td key={i}>{r}</td>
-        })
-        return <tr>{columns}</tr>;
+        return <TableRow data={this.state.headerText} header/>;
     }
     getLines = () => {
         const lines = this.props.data.map((res, index) => {
-            return <TableRow key={index} data={res.node} headers={this.state.headerText}/>
+            return <TableRow key={index} data={res.node} rowNumber={index} headers={this.state.headerText}/>
         })
         return lines;
     }
@@ -38,4 +32,4 @@ class Table extends Component {
     }
 }
 
-export default Table;
+export default Main;

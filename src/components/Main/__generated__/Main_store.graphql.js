@@ -15,6 +15,7 @@ export type Main_store = {|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +title: ?string,
+        +description: ?string,
         +image_url: ?string,
       |}
     |}>
@@ -68,6 +69,13 @@ const node/*: ReaderFragment*/ = {
                 {
                   "kind": "ScalarField",
                   "alias": null,
+                  "name": "description",
+                  "args": null,
+                  "storageKey": null
+                },
+                {
+                  "kind": "ScalarField",
+                  "alias": null,
                   "name": "image_url",
                   "args": null,
                   "storageKey": null
@@ -81,5 +89,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'cf972d1a1475afed8c97f7cadb994985';
+(node/*: any*/).hash = '316467e860d7eb8d742d21a1749b1410';
 module.exports = node;
