@@ -3,3 +3,10 @@
     min-height: 100vh;
     color: white;
 }
+.contentWithSideBar{
+    display: flex;
+}
+.content{
+    margin: 10px;
+    overflow-x: scroll;
+}

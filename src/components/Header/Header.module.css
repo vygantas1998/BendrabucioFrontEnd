@@ -1,0 +1,51 @@
+nav{
+    align-items: center;
+    height: 50px;
+    background-color: #da4055;
+    display: flex;
+}
+
+.navToggle{
+    padding: 12px;
+    display: none;
+    cursor: pointer;
+    width: 35px;
+}
+
+.navToggle div{
+    width: 25px;
+    height: 3px;
+    background-color:rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.logo{
+    color:rgb(226, 226, 226);
+    font-size: 17px;
+    padding-left: 20px;
+    padding-top: 17px;
+    padding-bottom: 15px;
+    width: 200px;
+}
+
+@media screen and (max-width: 1024px){
+    .navToggle{
+        display: block;
+        visibility: visible;
+    }
+    .logo{
+        padding-left: 0px;
+    }
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px,6px);
+}
+
+.toggle .line2{
+    opacity: 0;
+}
+
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px,-6px);
+}
