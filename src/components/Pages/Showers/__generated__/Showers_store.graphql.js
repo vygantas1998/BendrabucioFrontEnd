@@ -9,25 +9,24 @@
 /*::
 import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
-declare export opaque type Main_store$ref: FragmentReference;
-export type Main_store = {|
-  +washingMachines: {|
+declare export opaque type Showers_store$ref: FragmentReference;
+export type Showers_store = {|
+  +showers: {|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +title: ?string,
+        +type: ?string,
         +description: ?string,
-        +image_url: ?string,
       |}
     |}>
   |},
-  +$refType: Main_store$ref,
+  +$refType: Showers_store$ref,
 |};
 */
 
 
 const node/*: ReaderFragment*/ = {
   "kind": "Fragment",
-  "name": "Main_store",
+  "name": "Showers_store",
   "type": "Store",
   "metadata": null,
   "argumentDefinitions": [],
@@ -35,10 +34,10 @@ const node/*: ReaderFragment*/ = {
     {
       "kind": "LinkedField",
       "alias": null,
-      "name": "washingMachines",
+      "name": "showers",
       "storageKey": null,
       "args": null,
-      "concreteType": "WashingMachineConnection",
+      "concreteType": "ShowerConnection",
       "plural": false,
       "selections": [
         {
@@ -47,7 +46,7 @@ const node/*: ReaderFragment*/ = {
           "name": "edges",
           "storageKey": null,
           "args": null,
-          "concreteType": "WashingMachineEdge",
+          "concreteType": "ShowerEdge",
           "plural": true,
           "selections": [
             {
@@ -56,13 +55,13 @@ const node/*: ReaderFragment*/ = {
               "name": "node",
               "storageKey": null,
               "args": null,
-              "concreteType": "WashingMachine",
+              "concreteType": "Shower",
               "plural": false,
               "selections": [
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "name": "title",
+                  "name": "type",
                   "args": null,
                   "storageKey": null
                 },
@@ -70,13 +69,6 @@ const node/*: ReaderFragment*/ = {
                   "kind": "ScalarField",
                   "alias": null,
                   "name": "description",
-                  "args": null,
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "name": "image_url",
                   "args": null,
                   "storageKey": null
                 }
@@ -89,5 +81,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = '316467e860d7eb8d742d21a1749b1410';
+(node/*: any*/).hash = 'a1d00b7c6524f4eae9eb5c34830dacc0';
 module.exports = node;

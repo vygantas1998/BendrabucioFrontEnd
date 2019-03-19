@@ -25,7 +25,9 @@ const modernEnvironment = new Environment({
 const appQuery = graphql`
   query AppQuery{
     store{
-      ...Main_store
+      ...WashingMachines_store
+      ...Showers_store
+      ...ShowerReservations_store
     }
   }
 `

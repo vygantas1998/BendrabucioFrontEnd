@@ -9,4 +9,5 @@
 .content{
     margin: 10px;
     overflow-x: scroll;
+    width: 100%;
 }

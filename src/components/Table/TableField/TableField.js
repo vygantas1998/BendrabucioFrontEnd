@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import classes from './TableField.module.css';
+import moment from 'moment';
+import 'moment/locale/lt';
 
 class TableField extends Component {
     render(){
@@ -15,6 +17,10 @@ class TableField extends Component {
             if(this.props.opts.inc){
                 inner = this.props.rowNumber+1;
             } 
+            if(this.props.opts.time){
+                moment.locale("lt");
+                inner = moment(parseInt(this.props.value)).subtract(1, 'days').subtract(2, 'hours').calendar();
+            }
         }
         return <td className={className}>{inner}</td>
     }
