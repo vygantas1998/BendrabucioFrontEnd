@@ -28,6 +28,7 @@ const appQuery = graphql`
       ...WashingMachines_store
       ...Showers_store
       ...ShowerReservations_store
+      ...WashingMachineReservations_store
     }
   }
 `
