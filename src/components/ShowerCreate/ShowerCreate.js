@@ -1,11 +1,10 @@
 import React, {Component} from "react";
-import classes from "./WashingMachineCreate.module.css"
+import classes from "./ShowerCreate.module.css"
 
-class WashingMachineCreate extends Component{
+class ShowerCreate extends Component{
     state = {
-        title: "",
+        type: "",
         description: "",
-        image_url: ""
     }
 
     onChange = (event, field) => {
@@ -21,21 +20,21 @@ class WashingMachineCreate extends Component{
 
 
     render(){
-
+        console.log(this.props)
         return <div className={classes.form}>
 
 
             <div className={classes.nav}>
-                <span>PRIDĖTI SKALBYKLĘ</span>
+                <span>PRIDĖTI DUŠĄ</span>
             </div>
 
             <div className={classes.logo}>
-                <span>Pavadinimas</span>
+                <span>Tipas</span>
             </div>
 
             <div>
                 <div className={classes.logo1}>
-                    <input onChange={(event)=>this.onChange(event,"title")} value={this.state.title}/>
+                <input onChange={(event)=>this.onChange(event,"type")} value={this.state.type}/>
                 </div>
             </div>
 
@@ -45,24 +44,17 @@ class WashingMachineCreate extends Component{
 
             <div>
                 <div className={classes.logo1}>
-                    <input onChange={(event)=>this.onChange(event,"description")} value={this.state.description}/>
+                <input onChange={(event)=>this.onChange(event,"description")} value={this.state.description}/>
                 </div>
             </div>
 
-            <div className={classes.logo}>
-                <span>Nuodivauka(URL)</span>
-            </div>
-
-            <div className={classes.logo1}>
-                <input onChange={(event)=>this.onChange(event,"image_url")} value={this.state.image_url}/>
-            </div>
             <div>
                 <div className={classes.logo1}>
-                    <button onClick={this.onSubmit}> Patvirtinti</button>
+                <button onClick={this.onSubmit}> Patvirtinti</button>
                 </div>
             </div>
         </div>
     }
 };
 
-export default WashingMachineCreate;
+export default ShowerCreate;

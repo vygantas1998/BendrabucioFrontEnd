@@ -11,10 +11,10 @@ import type { ReaderFragment } from 'relay-runtime';
 import type { FragmentReference } from "relay-runtime";
 declare export opaque type WashingMachineReservations_store$ref: FragmentReference;
 export type WashingMachineReservations_store = {|
-  +washingMashineReservations: {|
+  +washingMachineReservations: {|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +washingMashine_id: ?string,
+        +washing_machine_id: ?string,
         +reservation_start_time: ?string,
         +reservation_end_time: ?string,
       |}
@@ -35,10 +35,10 @@ const node/*: ReaderFragment*/ = {
     {
       "kind": "LinkedField",
       "alias": null,
-      "name": "washingMashineReservations",
+      "name": "washingMachineReservations",
       "storageKey": null,
       "args": null,
-      "concreteType": "WashingMashineReservationConnection",
+      "concreteType": "WashingMachineReservationConnection",
       "plural": false,
       "selections": [
         {
@@ -47,7 +47,7 @@ const node/*: ReaderFragment*/ = {
           "name": "edges",
           "storageKey": null,
           "args": null,
-          "concreteType": "WashingMashineReservationEdge",
+          "concreteType": "WashingMachineReservationEdge",
           "plural": true,
           "selections": [
             {
@@ -56,13 +56,13 @@ const node/*: ReaderFragment*/ = {
               "name": "node",
               "storageKey": null,
               "args": null,
-              "concreteType": "WashingMashineReservation",
+              "concreteType": "WashingMachineReservation",
               "plural": false,
               "selections": [
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "name": "washingMashine_id",
+                  "name": "washing_machine_id",
                   "args": null,
                   "storageKey": null
                 },
@@ -89,5 +89,5 @@ const node/*: ReaderFragment*/ = {
   ]
 };
 // prettier-ignore
-(node/*: any*/).hash = 'a90ffad8e09a7fe288a1288e47285575';
+(node/*: any*/).hash = 'deb82861e1cdeccdcd3fe150815aa62c';
 module.exports = node;

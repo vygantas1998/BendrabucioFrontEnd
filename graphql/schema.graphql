@@ -9,6 +9,18 @@ type AddShowerPayload {
   clientMutationId: String
 }
 
+input AddShowerReservationInput {
+  shower_id: String
+  reservation_start_time: String
+  reservation_end_time: String
+  clientMutationId: String
+}
+
+type AddShowerReservationPayload {
+  showerReservationEdge: ShowerReservationEdge!
+  clientMutationId: String
+}
+
 input AddWashingMachineInput {
   title: String
   image_url: String
@@ -24,6 +36,8 @@ type AddWashingMachinePayload {
 type Mutation {
   addWashingMachine(input: AddWashingMachineInput!): AddWashingMachinePayload
   addShower(input: AddShowerInput!): AddShowerPayload
+  addWashingMachineReservation(input: AddShowerReservationInput!): AddShowerReservationPayload
+  addShowerReservation(input: AddShowerReservationInput!): AddShowerReservationPayload
 }
 
 """An object with an ID"""
@@ -150,7 +164,7 @@ type WashingMachineEdge {
 type WashingMachineReservation implements Node {
   """The ID of an object"""
   id: ID!
-  washingMachine_id: String
+  washing_machine_id: String
   reservation_start_time: String
   reservation_end_time: String
   created_at: String

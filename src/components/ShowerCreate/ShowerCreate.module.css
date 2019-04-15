@@ -1,0 +1,40 @@
+.form{
+
+    color: black;
+    margin: auto;
+    width: 50%;
+    border: 3px solid black;
+    padding: 10px;
+    align-items: center;
+    }
+
+    .nav{
+
+        background-color: #da4055;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle; 
+        font-size: 150%;
+        padding: 20px;
+        
+        
+    }
+    
+    .logo{
+        color: black;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle; 
+        font-size: 120%;
+        padding: 20px;
+
+        
+    }
+
+    .logo1{
+        display:block;
+        text-align:center;
+        font-size: 100%;
+        font-family: inherit;
+    }

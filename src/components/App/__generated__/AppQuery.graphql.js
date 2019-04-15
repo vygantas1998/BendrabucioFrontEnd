@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 03da001211ace49d71305c26200fdde9
+ * @relayHash 32d1115581fc1051cbe431237048c93a
  */
 
 /* eslint-disable */
@@ -75,10 +75,10 @@ fragment ShowerReservations_store on Store {
 }
 
 fragment WashingMachineReservations_store on Store {
-  washingMashineReservations {
+  washingMachineReservations {
     edges {
       node {
-        washingMashine_id
+        washing_machine_id
         reservation_start_time
         reservation_end_time
         id
@@ -310,10 +310,10 @@ return {
           {
             "kind": "LinkedField",
             "alias": null,
-            "name": "washingMashineReservations",
+            "name": "washingMachineReservations",
             "storageKey": null,
             "args": null,
-            "concreteType": "WashingMashineReservationConnection",
+            "concreteType": "WashingMachineReservationConnection",
             "plural": false,
             "selections": [
               {
@@ -322,7 +322,7 @@ return {
                 "name": "edges",
                 "storageKey": null,
                 "args": null,
-                "concreteType": "WashingMashineReservationEdge",
+                "concreteType": "WashingMachineReservationEdge",
                 "plural": true,
                 "selections": [
                   {
@@ -331,13 +331,13 @@ return {
                     "name": "node",
                     "storageKey": null,
                     "args": null,
-                    "concreteType": "WashingMashineReservation",
+                    "concreteType": "WashingMachineReservation",
                     "plural": false,
                     "selections": [
                       {
                         "kind": "ScalarField",
                         "alias": null,
-                        "name": "washingMashine_id",
+                        "name": "washing_machine_id",
                         "args": null,
                         "storageKey": null
                       },
@@ -358,7 +358,7 @@ return {
     "operationKind": "query",
     "name": "AppQuery",
     "id": null,
-    "text": "query AppQuery {\n  store {\n    ...WashingMachines_store\n    ...Showers_store\n    ...ShowerReservations_store\n    ...WashingMachineReservations_store\n  }\n}\n\nfragment WashingMachines_store on Store {\n  washingMachines {\n    edges {\n      node {\n        title\n        description\n        image_url\n        id\n      }\n    }\n  }\n}\n\nfragment Showers_store on Store {\n  showers {\n    edges {\n      node {\n        type\n        description\n        id\n      }\n    }\n  }\n}\n\nfragment ShowerReservations_store on Store {\n  showerReservations {\n    edges {\n      node {\n        shower_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n\nfragment WashingMachineReservations_store on Store {\n  washingMashineReservations {\n    edges {\n      node {\n        washingMashine_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n",
+    "text": "query AppQuery {\n  store {\n    ...WashingMachines_store\n    ...Showers_store\n    ...ShowerReservations_store\n    ...WashingMachineReservations_store\n  }\n}\n\nfragment WashingMachines_store on Store {\n  washingMachines {\n    edges {\n      node {\n        title\n        description\n        image_url\n        id\n      }\n    }\n  }\n}\n\nfragment Showers_store on Store {\n  showers {\n    edges {\n      node {\n        type\n        description\n        id\n      }\n    }\n  }\n}\n\nfragment ShowerReservations_store on Store {\n  showerReservations {\n    edges {\n      node {\n        shower_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n\nfragment WashingMachineReservations_store on Store {\n  washingMachineReservations {\n    edges {\n      node {\n        washing_machine_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
