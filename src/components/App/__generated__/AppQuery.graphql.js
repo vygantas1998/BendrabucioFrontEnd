@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash d54f9b3b54fa56e717952b19e7c382cf
+ * @relayHash 03da001211ace49d71305c26200fdde9
  */
 
 /* eslint-disable */
@@ -11,11 +11,12 @@
 import type { ConcreteRequest } from 'relay-runtime';
 type ShowerReservations_store$ref = any;
 type Showers_store$ref = any;
+type WashingMachineReservations_store$ref = any;
 type WashingMachines_store$ref = any;
 export type AppQueryVariables = {||};
 export type AppQueryResponse = {|
   +store: ?{|
-    +$fragmentRefs: WashingMachines_store$ref & Showers_store$ref & ShowerReservations_store$ref
+    +$fragmentRefs: WashingMachines_store$ref & Showers_store$ref & ShowerReservations_store$ref & WashingMachineReservations_store$ref
   |}
 |};
 export type AppQuery = {|
@@ -31,6 +32,7 @@ query AppQuery {
     ...WashingMachines_store
     ...Showers_store
     ...ShowerReservations_store
+    ...WashingMachineReservations_store
   }
 }
 
@@ -71,6 +73,19 @@ fragment ShowerReservations_store on Store {
     }
   }
 }
+
+fragment WashingMachineReservations_store on Store {
+  washingMashineReservations {
+    edges {
+      node {
+        washingMashine_id
+        reservation_start_time
+        reservation_end_time
+        id
+      }
+    }
+  }
+}
 */
 
 const node/*: ConcreteRequest*/ = (function(){
@@ -85,6 +100,20 @@ v1 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "reservation_start_time",
+  "args": null,
+  "storageKey": null
+},
+v3 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "reservation_end_time",
   "args": null,
   "storageKey": null
 };
@@ -119,6 +148,11 @@ return {
           {
             "kind": "FragmentSpread",
             "name": "ShowerReservations_store",
+            "args": null
+          },
+          {
+            "kind": "FragmentSpread",
+            "name": "WashingMachineReservations_store",
             "args": null
           }
         ]
@@ -264,20 +298,51 @@ return {
                         "args": null,
                         "storageKey": null
                       },
+                      (v2/*: any*/),
+                      (v3/*: any*/),
+                      (v1/*: any*/)
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "name": "washingMashineReservations",
+            "storageKey": null,
+            "args": null,
+            "concreteType": "WashingMashineReservationConnection",
+            "plural": false,
+            "selections": [
+              {
+                "kind": "LinkedField",
+                "alias": null,
+                "name": "edges",
+                "storageKey": null,
+                "args": null,
+                "concreteType": "WashingMashineReservationEdge",
+                "plural": true,
+                "selections": [
+                  {
+                    "kind": "LinkedField",
+                    "alias": null,
+                    "name": "node",
+                    "storageKey": null,
+                    "args": null,
+                    "concreteType": "WashingMashineReservation",
+                    "plural": false,
+                    "selections": [
                       {
                         "kind": "ScalarField",
                         "alias": null,
-                        "name": "reservation_start_time",
+                        "name": "washingMashine_id",
                         "args": null,
                         "storageKey": null
                       },
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "name": "reservation_end_time",
-                        "args": null,
-                        "storageKey": null
-                      },
+                      (v2/*: any*/),
+                      (v3/*: any*/),
                       (v1/*: any*/)
                     ]
                   }
@@ -293,11 +358,11 @@ return {
     "operationKind": "query",
     "name": "AppQuery",
     "id": null,
-    "text": "query AppQuery {\n  store {\n    ...WashingMachines_store\n    ...Showers_store\n    ...ShowerReservations_store\n  }\n}\n\nfragment WashingMachines_store on Store {\n  washingMachines {\n    edges {\n      node {\n        title\n        description\n        image_url\n        id\n      }\n    }\n  }\n}\n\nfragment Showers_store on Store {\n  showers {\n    edges {\n      node {\n        type\n        description\n        id\n      }\n    }\n  }\n}\n\nfragment ShowerReservations_store on Store {\n  showerReservations {\n    edges {\n      node {\n        shower_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n",
+    "text": "query AppQuery {\n  store {\n    ...WashingMachines_store\n    ...Showers_store\n    ...ShowerReservations_store\n    ...WashingMachineReservations_store\n  }\n}\n\nfragment WashingMachines_store on Store {\n  washingMachines {\n    edges {\n      node {\n        title\n        description\n        image_url\n        id\n      }\n    }\n  }\n}\n\nfragment Showers_store on Store {\n  showers {\n    edges {\n      node {\n        type\n        description\n        id\n      }\n    }\n  }\n}\n\nfragment ShowerReservations_store on Store {\n  showerReservations {\n    edges {\n      node {\n        shower_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n\nfragment WashingMachineReservations_store on Store {\n  washingMashineReservations {\n    edges {\n      node {\n        washingMashine_id\n        reservation_start_time\n        reservation_end_time\n        id\n      }\n    }\n  }\n}\n",
     "metadata": {}
   }
 };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'eb59023d10df2ffb82394111d6105476';
+(node/*: any*/).hash = '62b159eea651c6cc645cdcd92d124569';
 module.exports = node;

@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import WashingMachines from '../Pages/WashingMachines/WashingMachines';
 import Showers from '../Pages/Showers/Showers';
 import ShowerReservations from '../Pages/ShowerReservations/ShowerReservations';
+import WashingMachineReservations from '../Pages/WashingMachineReservations/WashingMachineReservations';
+import WashingMachineCreate from '../WashingMachineCreate/WashingMachineCreate';
 class Main extends Component {
     state = {
         mobileSideBar: false
@@ -26,9 +28,11 @@ class Main extends Component {
                         <div className={classes.content}>
                             <Switch>
                                 <Route exact path="/" component={() => <div></div>}/>
-                                <Route path="/washingMachines" component={() => <WashingMachines store={this.props.store}/>} />
-                                <Route path="/showers" component={() => <Showers store={this.props.store}/>} />
-                                <Route path="/reservations" component={() => <ShowerReservations store={this.props.store}/>} />
+                                <Route path="/washingMachines" exact component={() => <WashingMachines store={this.props.store}/>} />
+                                <Route path="/showers" exact component={() => <Showers store={this.props.store}/>} />
+                                <Route path="/reservations/shower" exact component={() => <ShowerReservations store={this.props.store}/>} />
+                                <Route path="/washingMachines/create" exact component={WashingMachineCreate} />
+                                <Route path="/reservations/washingMachine" exact component={() => <WashingMachineReservations store={this.props.store}/>} />
                             </Switch>
                         </div>
                     </div>
