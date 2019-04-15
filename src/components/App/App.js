@@ -4,7 +4,7 @@ import {Environment, Network, RecordSource, Store} from 'relay-runtime';
 import Main from '../Main/Main';
 
 function fetchQuery(operation, variables) {
-  return fetch('http://xdhm1zcmxa.nlnode.webrahost.eu/graphql', {
+  return fetch('http://xdhm1zcmxa.nlnode.webrahost.eu/graphql', { //'http://xdhm1zcmxa.nlnode.webrahost.eu/graphql'
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
