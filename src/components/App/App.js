@@ -17,7 +17,7 @@ function fetchQuery(operation, variables) {
     return response.json();
   })
 }
-const modernEnvironment = new Environment({
+export const modernEnvironment = new Environment({
   network: Network.create(fetchQuery),
   store: new Store(new RecordSource()),
 });
