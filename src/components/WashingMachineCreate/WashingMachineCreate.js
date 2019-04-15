@@ -50,7 +50,7 @@ class WashingMachineCreate extends Component{
             </div>
 
             <div className={classes.logo}>
-                <span>Nuodivauka(URL)</span>
+                <span>Nuotrauka(URL)</span>
             </div>
 
             <div className={classes.logo1}>
@@ -58,7 +58,7 @@ class WashingMachineCreate extends Component{
             </div>
             <div>
                 <div className={classes.logo1}>
-                    <button onClick={this.onSubmit}> Patvirtinti</button>
+                    <button className={classes.button} onClick={this.onSubmit}> Patvirtinti</button>
                 </div>
             </div>
         </div>
