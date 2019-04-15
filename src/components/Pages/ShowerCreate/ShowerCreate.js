@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import Form from "../Form/Form";
-import commit from "../../mutations/AddShower";
-import { modernEnvironment } from "../App/App";
+import Form from "../../Form/Form";
+import commit from "../../../mutations/AddShower";
+import { modernEnvironment } from "../../App/App";
+import {withRouter} from "react-router-dom";
 
 class ShowerCreate extends Component{
     state = {
@@ -17,4 +18,4 @@ class ShowerCreate extends Component{
     }
 };
 
-export default ShowerCreate;
+export default withRouter(ShowerCreate);

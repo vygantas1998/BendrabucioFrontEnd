@@ -7,8 +7,8 @@ import WashingMachines from '../Pages/WashingMachines/WashingMachines';
 import Showers from '../Pages/Showers/Showers';
 import ShowerReservations from '../Pages/ShowerReservations/ShowerReservations';
 import WashingMachineReservations from '../Pages/WashingMachineReservations/WashingMachineReservations';
-import WashingMachineCreate from '../WashingMachineCreate/WashingMachineCreate';
-import ShowerCreate from '../ShowerCreate/ShowerCreate';
+import WashingMachineCreate from '../Pages/WashingMachineCreate/WashingMachineCreate';
+import ShowerCreate from '../Pages/ShowerCreate/ShowerCreate';
 class Main extends Component {
     state = {
         mobileSideBar: false
