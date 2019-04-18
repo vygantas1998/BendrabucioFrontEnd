@@ -1,16 +1,25 @@
 import React, {Component} from "react";
 import Form from "../../Form/Form";
-import commit from "../../../mutations/AddWashingMachine";
-import { modernEnvironment } from "../../App/App"; 
 import {withRouter} from "react-router-dom";
 
 class WashingMachineCreate extends Component{
-    state = {
+    postData = async(api, data) => {
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {"Content-type": "application/json"}
+            
+        }
+        const response = await fetch(`${api}/washingmachines`, options)
+        const res = response.json();
+        if(res.error){
+            console.error(res.error)
+        }
     }
 
-    onSubmit = (data) => {
-        commit(modernEnvironment, data);
-        this.props.history.push("/washingMachines");
+    onSubmit = async(data) => {
+        await this.postData(this.props.api, data);
+        this.props.history.push("/washingmachines");
     }
 
     render(){

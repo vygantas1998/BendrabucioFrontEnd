@@ -20,6 +20,7 @@ class Main extends Component {
         })
     }
     render() {
+        const api = "http://localhost:56171"
         return (
             <Router>
                 <div className={classes.Main}>
@@ -29,12 +30,12 @@ class Main extends Component {
                         <div className={classes.content}>
                             <Switch>
                                 <Route exact path="/" component={() => <div></div>}/>
-                                <Route path="/washingMachines" exact component={() => <WashingMachines store={this.props.store}/>} />
-                                <Route path="/showers" exact component={() => <Showers store={this.props.store}/>} />
-                                <Route path="/reservations/shower" exact component={() => <ShowerReservations store={this.props.store}/>} />
-                                <Route path="/washingMachines/create" exact component={WashingMachineCreate} />
-                                <Route path="/showers/create" exact component={ShowerCreate} />
-                                <Route path="/reservations/washingMachine" exact component={() => <WashingMachineReservations store={this.props.store}/>} />
+                                <Route path="/washingMachines" exact component={() => <WashingMachines api={api}/>} />
+                                <Route path="/showers" exact component={() => <Showers api={api}/>} />
+                                <Route path="/reservations/shower" exact component={() => <ShowerReservations api={api}/>} />
+                                <Route path="/washingMachines/create" exact component={() => <WashingMachineCreate api={api}/>} />
+                                <Route path="/showers/create" exact component={() => <ShowerCreate api={api}/>} />
+                                <Route path="/reservations/washingMachine" exact component={() => <WashingMachineReservations api={api}/>} />
                             </Switch>
                         </div>
                     </div>

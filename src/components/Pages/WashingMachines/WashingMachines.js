@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 //import classes from './WashingMachines.module.css';
-import {createFragmentContainer, graphql} from 'react-relay';
 import Table from '../../Table/Main/Main'
 
 class WashingMachines extends Component {
+    state = {
+        data: []
+    }
+    fetchData = (api) => {
+        fetch(`${api}/washingmachines`).then(res => res.json()).then(res => {
+            this.setState({data: res});
+        });
+    }
+    componentDidMount(){
+        this.fetchData(this.props.api);
+    }
     render(){
         const header = [
             {value: "Nr.", inc: true},
@@ -11,22 +21,8 @@ class WashingMachines extends Component {
             {value: "Aprašymas", fieldName: "description"},
             {value: "Nuotrauka", fieldName: "image_url", img: true}
         ]
-        return <Table data={this.props.store.washingMachines.edges} header={header}/>;
+        return <Table data={this.state.data} header={header}/>;
     }
 }
 
-export default createFragmentContainer(WashingMachines, {
-    store: graphql`
-        fragment WashingMachines_store on Store{
-            washingMachines{
-                edges{
-                    node{
-                        title
-                        description
-                        image_url
-                    }
-                }
-            }
-        }
-    `
-});
+export default WashingMachines;
