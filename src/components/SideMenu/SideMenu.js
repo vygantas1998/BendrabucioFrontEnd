@@ -14,6 +14,7 @@ class SideMenu extends Component {
                         <li><Link to="/reservations/washingMachine">(Admin) Rezervacijos Skalbyklės</Link></li>
                         <li><Link to="/washingMachines/create">(Admin) Prideti skalbyklę</Link></li>
                         <li><Link to="/showers/create">(Admin) Prideti dušą</Link></li>
+                        <li><Link to="/users">(Admin) Vartotojai</Link></li>
                     </ul>
                 </div>;
     }

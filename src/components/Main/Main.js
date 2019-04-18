@@ -9,6 +9,8 @@ import ShowerReservations from '../Pages/ShowerReservations/ShowerReservations';
 import WashingMachineReservations from '../Pages/WashingMachineReservations/WashingMachineReservations';
 import WashingMachineCreate from '../Pages/WashingMachineCreate/WashingMachineCreate';
 import ShowerCreate from '../Pages/ShowerCreate/ShowerCreate';
+import Register from '../Pages/Register/Register';
+import Users from '../Pages/Users/Users';
 class Main extends Component {
     state = {
         mobileSideBar: false
@@ -36,6 +38,8 @@ class Main extends Component {
                                 <Route path="/washingMachines/create" exact component={() => <WashingMachineCreate api={api}/>} />
                                 <Route path="/showers/create" exact component={() => <ShowerCreate api={api}/>} />
                                 <Route path="/reservations/washingMachine" exact component={() => <WashingMachineReservations api={api}/>} />
+                                <Route path="/users/register" exact component={() => <Register api={api}/>} />
+                                <Route path="/users" exact component={() => <Users api={api}/>} />
                             </Switch>
                         </div>
                     </div>

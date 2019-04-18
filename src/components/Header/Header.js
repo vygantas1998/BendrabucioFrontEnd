@@ -13,6 +13,9 @@ class Header extends Component {
                     <div className={classes.logo}>
                         <span>Bendrabučio valdymas</span>
                     </div>
+                    <form action="/users/register" >
+                        <button> Registruotis </button>
+                    </form>
                 </nav>;
     }
 }
