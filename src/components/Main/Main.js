@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import classes from './Main.module.css';
 import Header from '../Header/Header';
 import SideMenu from '../SideMenu/SideMenu';
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import WashingMachines from '../Pages/WashingMachines/WashingMachines';
 import Showers from '../Pages/Showers/Showers';
 import ShowerReservations from '../Pages/ShowerReservations/ShowerReservations';
 import WashingMachineReservations from '../Pages/WashingMachineReservations/WashingMachineReservations';
 import WashingMachineCreate from '../Pages/WashingMachineCreate/WashingMachineCreate';
 import ShowerCreate from '../Pages/ShowerCreate/ShowerCreate';
+
 class Main extends Component {
     state = {
         mobileSideBar: false
@@ -22,7 +23,7 @@ class Main extends Component {
     render() {
         const api = "http://localhost:56171"
         return (
-            <Router>
+            
                 <div className={classes.Main}>
                     <Header toggleMobileSideBar={this.toggleMobileSideBar} mobileSideBar={this.state.mobileSideBar}/>
                     <div className={classes.contentWithSideBar}>
@@ -40,7 +41,6 @@ class Main extends Component {
                         </div>
                     </div>
                 </div>
-            </Router>
         );
     }
 }
