@@ -4,6 +4,7 @@ import classes from './Header.module.css';
 class Header extends Component {
     render(){
         const toggle = this.props.mobileSideBar ? " " + classes.toggle : "";
+
         return  <nav>
                     <div className={classes.navToggle + toggle} onClick={this.props.toggleMobileSideBar}>
                         <div className={classes.line1}></div>
