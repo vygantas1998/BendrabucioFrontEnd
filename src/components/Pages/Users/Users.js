@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 //import classes from './Showers.module.css';
 import Table from '../../Table/Main/Main'
+import { getOptions } from '../../../helpers';
 
 class Users extends Component {
     state = {
         data: []
     }
     fetchData = (api) => {
-        fetch(`${api}/users`).then(res => res.json()).then(res => {
-            this.setState({data: res});
+        fetch(`${api}/users`, getOptions()).then(res => res.json()).then(res => {
+            if(!res.error){
+                this.setState({data: res});
+            } else {
+                console.log(res.error);
+            }
         });
     }
     componentDidMount(){

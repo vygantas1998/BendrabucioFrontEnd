@@ -1,13 +1,17 @@
 import React, {Component} from "react";
 import Form from "../../Form/Form";
 import {withRouter} from "react-router-dom";
+import { getCookie } from "../../../helpers";
 
 class WashingMachineCreate extends Component{
     postData = async(api, data) => {
         const options = {
             method: "POST",
             body: JSON.stringify(data),
-            headers: {"Content-type": "application/json"}
+            headers: {
+                "Content-type": "application/json",
+                "Authorization": "Bearer " + getCookie("token")
+            }
             
         }
         const response = await fetch(`${api}/washingmachines`, options)

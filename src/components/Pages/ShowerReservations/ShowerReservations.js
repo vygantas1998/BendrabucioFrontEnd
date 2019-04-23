@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 //import classes from './ShowerReservations.module.css';
 import Table from '../../Table/Main/Main'
+import { getOptions } from '../../../helpers';
 
 class ShowerReservations extends Component {
     state = {
         data: []
     }
     fetchData = (api) => {
-        fetch(`${api}/showerreservations`).then(res => res.json()).then(res => {
+        fetch(`${api}/showerreservations`, getOptions()).then(res => res.json()).then(res => {
             this.setState({data: res});
         });
     }

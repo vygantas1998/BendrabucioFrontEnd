@@ -10,8 +10,8 @@ class App extends Component {
   }
 
   render() {
-
-    const body = this.state.loggedin ? <Main/> : <LogIn login={this.login}/>;
+    const api = "http://localhost:56171";
+    const body = this.state.loggedin ? <Main logout={this.logout} api={api}/> : <LogIn login={this.login} api={api}/>;
     return <Router>
       {body}
       </Router>  
@@ -21,6 +21,7 @@ class App extends Component {
     this.setState({...this.state, loggedin : true})
   }
   logout = () => {
+    document.cookie = "token=;path=/;expires=Thu, 01 Jan 1970 00:00:00 GMT"; 
     this.setState({...this.state, loggedin : false})
   }
 }

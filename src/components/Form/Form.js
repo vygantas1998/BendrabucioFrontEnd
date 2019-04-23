@@ -30,7 +30,7 @@ class Form extends Component{
                 return  <div key={i} className={classes.logo}>
                             <label htmlFor={val.field}>{val.title}</label>
                             <div className={classes.logo1}>
-                                <input id={val.field} onChange={(event)=>this.onChange(event,val.field)} value={this.state[val.field]}/>
+                                <input {...val.attr} id={val.field} onChange={(event)=>this.onChange(event,val.field)} value={this.state[val.field]}/>
                             </div>
                         </div>
             }
@@ -45,7 +45,8 @@ class Form extends Component{
                         <span>{this.props.title}</span>
                     </div>
                     {this.getFields()}
-                    <div>
+                    <div className={classes.errorSubmit}>
+                        <span className={classes.error}>{this.props.error}</span>
                         <div className={classes.logo1}>
                             <button className={classes.button} onClick={this.onSubmit}>{this.props.submit.text}</button>
                         </div>
