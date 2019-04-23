@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 //import classes from './WashingMachines.module.css';
 import Table from '../../Table/Main/Main'
+import { getOptions } from '../../../helpers';
 
 class WashingMachines extends Component {
     state = {
         data: []
     }
     fetchData = (api) => {
-        fetch(`${api}/washingmachines`).then(res => res.json()).then(res => {
-            this.setState({data: res});
+        fetch(`${api}/washingmachines`, getOptions()).then(res => res.json()).then(res => {
+            if(!res.error){
+                this.setState({data: res});
+            } else {
+                console.log(res.error);
+            }
         });
     }
     componentDidMount(){

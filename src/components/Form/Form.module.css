@@ -71,6 +71,12 @@
     text-decoration:none;
     align-content: auto;
 }
+.error{
+    color: red;
+}
+.errorSubmit{
+    text-align:center;
+}
 .button:hover{
     background-color: #dda8af
 }

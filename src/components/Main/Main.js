@@ -22,13 +22,12 @@ class Main extends Component {
         })
     }
     render() {
-        const api = "http://localhost:56171"
+        const api = this.props.api;
         return (
-            
                 <div className={classes.Main}>
                     <Header toggleMobileSideBar={this.toggleMobileSideBar} mobileSideBar={this.state.mobileSideBar}/>
                     <div className={classes.contentWithSideBar}>
-                        <SideMenu mobileSideBar={this.state.mobileSideBar}/>
+                        <SideMenu mobileSideBar={this.state.mobileSideBar} logout={this.props.logout}/>
                         <div className={classes.content}>
                             <Switch>
                                 <Route exact path="/" component={() => <div></div>}/>
