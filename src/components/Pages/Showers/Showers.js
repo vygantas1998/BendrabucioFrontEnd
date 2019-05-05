@@ -5,7 +5,8 @@ import { getOptions } from '../../../helpers';
 
 class Showers extends Component {
     state = {
-        data: []
+        data: [],
+        reservations: []
     }
     fetchData = (api) => {
         fetch(`${api}/showers`, getOptions()).then(res => res.json()).then(res => {
@@ -24,7 +25,8 @@ class Showers extends Component {
             {value: "Nr.", inc: true},
             {value: "Tipas", fieldName: "type"},
             {value: "Aprašymas", fieldName: "description"},
-            {value: "Rezervacija", fieldName: "id", reservations: true}
+            {value: "Rezervacija", fieldName: "id", reservations: true},
+            {value: "Ištrinti", fieldName: "id", remove: true}
         ]
         return <Table data={this.state.data} header={header}/>;
     }

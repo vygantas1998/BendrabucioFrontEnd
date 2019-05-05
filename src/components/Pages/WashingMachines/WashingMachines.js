@@ -26,6 +26,7 @@ class WashingMachines extends Component {
             {value: "Aprašymas", fieldName: "description"},
             {value: "Nuotrauka", fieldName: "image_url", img: true},
             {value: "Rezervacija", fieldName: "id", reservations: true},
+            {value: "Ištrinti", fieldName: "id", remove: true},
         ]
         return <Table data={this.state.data} header={header}/>;
     }

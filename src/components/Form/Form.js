@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import classes from "./Form.module.css"
+import Input from "./Input/Input";
 
 class Form extends Component{
     state = {
@@ -8,7 +9,7 @@ class Form extends Component{
     onChange = (event, field) => {
         this.setState({
             ...this.state, 
-            [field]: event.target.value
+            [field]: event
         })
     }
 
@@ -30,7 +31,7 @@ class Form extends Component{
                 return  <div key={i} className={classes.logo}>
                             <label htmlFor={val.field}>{val.title}</label>
                             <div className={classes.logo1}>
-                                <input {...val.attr} id={val.field} onChange={(event)=>this.onChange(event,val.field)} value={this.state[val.field]}/>
+                                <Input attr={val.attr} id={val.field} field={val.field} type={val.field.includes("time")?"date":""} onChange={this.onChange} value={this.state[val.field]}/>
                             </div>
                         </div>
             }
