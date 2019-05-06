@@ -23,7 +23,8 @@ class Showers extends Component {
         const header = [
             {value: "Nr.", inc: true},
             {value: "Tipas", fieldName: "type"},
-            {value: "Aprašymas", fieldName: "description"}
+            {value: "Aprašymas", fieldName: "description"},
+            {value: "Rezervacija", fieldName: "id", reservations: true}
         ]
         return <Table data={this.state.data} header={header}/>;
     }

@@ -12,9 +12,9 @@ class App extends Component {
   render() {
     const api = "http://localhost:56171";
     const body = this.state.loggedin ? <Main logout={this.logout} api={api}/> : <LogIn login={this.login} api={api}/>;
-    return <Router>
-      {body}
-      </Router>  
+    return  <Router>
+              {body}
+            </Router>  
   }
 
   login = () => {
