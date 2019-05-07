@@ -4,12 +4,10 @@ import DatePicker from 'react-datepicker';
 
 class Input extends Component{
     render(){
-        console.log(this.props);
         switch(this.props.type)
         {
             case "date":
                 const selectedDate = this.props.value ? new Date(this.props.value) : new Date();
-                console.log(selectedDate);
                 if(!this.props.value){
                     this.props.onChange(selectedDate.toISOString(), this.props.field);
                 }

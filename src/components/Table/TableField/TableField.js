@@ -7,18 +7,66 @@ import { getOptions } from '../../../helpers';
 
 class TableField extends Component {
 
+    state = {
+        buttonshow: true,
+        reservedTill: ""
+    }
+
+    _isMounted = false;
+
     onClick = (id) => {
         this.props.history.push(this.props.history.location.pathname + "/reservation/" + id);
     }
 
     onRemove = (id) => {
         const header = {...getOptions(),method:"DELETE"};
-         fetch(`http://localhost:56171${this.props.history.location.pathname.toLowerCase()}/${id}`, header).then(res => res.json()).then(res => {
+        let apiEndPoint = this.props.history.location.pathname.toLowerCase();
+        if(this.props.apiEndPoint){
+            apiEndPoint = "/" + this.props.apiEndPoint;
+        }
+        fetch(`http://localhost:56171${apiEndPoint}/${id}`, header).then(res => res.text()).then(res => {
             if(!res.error){
+                this.props.removeData();
             } else {
                 console.log(res.error);
             }
         });
+    }
+
+    reservationFetch = async()=>{
+        const page = this.props.history.location.pathname.toLowerCase().slice(0,-1);
+        let idfield = page.substr(1);
+        if(idfield === "washingmachine"){
+            idfield = "washing_machine";
+        }
+        const url = `http://localhost:56171${page}reservations`;
+        const filter = `filter[where][${idfield}_id]=${this.props.value}&filter[order]=reservation_end_time DESC&filter[limit]=1`;
+        
+        const response = await fetch(`${url}?${filter}`, getOptions());
+        const res = await response.json();
+
+        if(res.length === 1){
+            const now = new Date().getTime();
+            const from = new Date(res[0].reservation_start_time).getTime();
+            const to = new Date(res[0].reservation_end_time).getTime();
+                
+            if(from <= now && now < to){
+                if(this._isMounted){
+                    this.setState({buttonshow: false, reservedTill: moment(res[0].reservation_end_time).fromNow()});
+                }
+            }
+        }
+    }
+
+    componentDidMount(){
+        this._isMounted = true;
+        if(this.props.opts.reservations){
+            this.reservationFetch();
+        }
+    }
+
+    componentWillUnmount(){
+        this._isMounted = false;
     }
 
     render(){
@@ -39,12 +87,11 @@ class TableField extends Component {
                 inner = moment(this.props.value).format('LLL');
             }
             if(this.props.opts.reservations){
-                const buttonshow = false;
-                if(buttonshow){
+                if(this.state.buttonshow){
                     inner = <button onClick={() => this.onClick(this.props.value)} className={classes.button}><i>Rezervuoti</i></button>
                 }
                 else
-                   inner = <div className={classes.reserved}> <i>Rezervuota iki </i> </div>;
+                   inner = <div className={classes.reserved}> <i>Atsilaisvins {this.state.reservedTill}</i> </div>;
             }
             if(this.props.opts.remove)
             {

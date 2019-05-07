@@ -16,7 +16,6 @@ class WashingMachineReservationsCreate extends Component{
         }
         const response = await fetch(`${api}/washingmachinereservations`, options)
         const res = await response.json();
-        console.log(res);
         if(res.error){
             console.error(res.error)
         }

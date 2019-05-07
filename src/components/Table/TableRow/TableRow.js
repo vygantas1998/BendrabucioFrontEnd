@@ -12,7 +12,7 @@ class TableRow extends Component {
                 value = res.value;
                 res = {};
             }
-            return <TableField key={index} rowNumber={this.props.rowNumber} value={value} opts={res} header={this.props.header}/>;
+            return <TableField removeData={this.props.removeData} apiEndPoint={this.props.apiEndPoint} key={index} rowNumber={this.props.rowNumber} value={value} opts={res} header={this.props.header}/>;
         })
     }
     render(){

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 //import classes from './WashingMachines.module.css';
 import Table from '../../Table/Main/Main'
-import { getOptions } from '../../../helpers';
+import { getOptions, isAdminRole } from '../../../helpers';
 
 class WashingMachines extends Component {
     state = {
@@ -25,9 +25,11 @@ class WashingMachines extends Component {
             {value: "Pavadinimas", fieldName: "title"},
             {value: "Aprašymas", fieldName: "description"},
             {value: "Nuotrauka", fieldName: "image_url", img: true},
-            {value: "Rezervacija", fieldName: "id", reservations: true},
-            {value: "Ištrinti", fieldName: "id", remove: true},
+            {value: "Rezervacija", fieldName: "id", reservations: true}
         ]
+        if(isAdminRole()){
+            header.push({value: "Ištrinti", fieldName: "id", remove: true});
+        }
         return <Table data={this.state.data} header={header}/>;
     }
 }
