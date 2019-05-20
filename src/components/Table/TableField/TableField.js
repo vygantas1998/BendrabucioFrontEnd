@@ -8,7 +8,6 @@ import { getOptions } from '../../../helpers';
 class TableField extends Component {
 
     state = {
-        buttonshow: true,
         reservedTill: ""
     }
 
@@ -33,15 +32,14 @@ class TableField extends Component {
         });
     }
 
-    reservationFetch = async()=>{
+    reservationFetch = async(id)=>{
         const page = this.props.history.location.pathname.toLowerCase().slice(0,-1);
         let idfield = page.substr(1);
         if(idfield === "washingmachine"){
             idfield = "washing_machine";
         }
         const url = `http://localhost:56171${page}reservations`;
-        const filter = `filter[where][${idfield}_id]=${this.props.value}&filter[order]=reservation_end_time DESC&filter[limit]=1`;
-        
+        const filter = `filter[where][${idfield}_id]=${id}&filter[order]=reservation_end_time DESC&filter[limit]=1`;
         const response = await fetch(`${url}?${filter}`, getOptions());
         const res = await response.json();
 
@@ -51,17 +49,47 @@ class TableField extends Component {
             const to = new Date(res[0].reservation_end_time).getTime();
                 
             if(from <= now && now < to){
-                if(this._isMounted){
-                    this.setState({buttonshow: false, reservedTill: moment(res[0].reservation_end_time).fromNow()});
-                }
+                return moment(res[0].reservation_end_time).fromNow();
             }
         }
+        return false;
     }
 
     componentDidMount(){
         this._isMounted = true;
         if(this.props.opts.reservations){
-            this.reservationFetch();
+            this.reservationFetch(this.props.value).then(val => {
+                if(val){
+                    this.setState({
+                        ...this.state,
+                        reservedTill: val
+                    })
+                } else {
+                    this.setState({
+                        ...this.state,
+                        reservedTill: false
+                    })
+                }
+            });
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        this._isMounted = true;
+        if(nextProps.opts.reservations){
+            this.reservationFetch(nextProps.value).then(val => {
+                if(val){
+                    this.setState({
+                        ...this.state,
+                        reservedTill: val
+                    })
+                } else {
+                    this.setState({
+                        ...this.state,
+                        reservedTill: false
+                    })
+                }
+            });
         }
     }
 
@@ -87,11 +115,12 @@ class TableField extends Component {
                 inner = moment(this.props.value).format('LLL');
             }
             if(this.props.opts.reservations){
-                if(this.state.buttonshow){
+                if(!this.state.reservedTill){
                     inner = <button onClick={() => this.onClick(this.props.value)} className={classes.button}><i>Rezervuoti</i></button>
                 }
-                else
-                   inner = <div className={classes.reserved}> <i>Atsilaisvins {this.state.reservedTill}</i> </div>;
+                else {
+                    inner = <div className={classes.reserved}> <i>Atsilaisvins {this.state.reservedTill}</i> </div>;
+                }
             }
             if(this.props.opts.remove)
             {

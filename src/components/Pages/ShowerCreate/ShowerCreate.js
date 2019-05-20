@@ -26,8 +26,12 @@ class ShowerCreate extends Component{
         this.props.history.push("/showers");
     }
 
+    requiredValidation = (value) => {
+        return value ? true : false;
+    }
+
     render(){
-        const fields = [{title: "Tipas", field: "type"}, {title: "Aprašymas", field: "description"}];
+        const fields = [{title: "Tipas", field: "type", validation: this.requiredValidation}, {title: "Aprašymas", field: "description"}];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="PRIDĖTI DUŠĄ"/>
     }
 };

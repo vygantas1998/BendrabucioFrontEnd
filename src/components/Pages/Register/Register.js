@@ -28,13 +28,17 @@ class Register extends Component{
         this.props.history.push("/users");
     }
 
+    requiredValidation = (value) => {
+        return value ? true : false;
+    }
+
     render(){
         const fields = [
-            {title: "Vartotojo vardas", field: "username"},
-            {title: "Slaptažodis", field: "password", attr: {type:"password"}},
+            {title: "Vartotojo vardas", field: "username", validation: this.requiredValidation},
+            {title: "Slaptažodis", field: "password", attr: {type:"password"}, validation: this.requiredValidation},
             {title: "Kambario Nr.", field: "room_no", attr: {type:"number"}}, 
-            {title: "El. pašto adresas", field: "email"},
-            {title: "Rolė", field: "role"}]
+            {title: "El. pašto adresas", field: "email", validation: this.requiredValidation},
+            {title: "Rolė", field: "role", validation: this.requiredValidation}]
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="Registracija"/>
     }
 };

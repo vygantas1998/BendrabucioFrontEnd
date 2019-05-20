@@ -15,6 +15,7 @@ class ShowerReservations extends Component {
     componentDidMount(){
         this.fetchData(this.props.api);
     }
+
     render(){
         let header = [
             {value: "Nr.", inc: true},

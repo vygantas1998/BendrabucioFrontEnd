@@ -26,8 +26,16 @@ class WashingMachineCreate extends Component{
         this.props.history.push("/washingmachines");
     }
 
+    requiredValidation = (value) => {
+        return value ? true : false;
+    }
+
     render(){
-        const fields = [{title: "Pavadinimas", field: "title"}, {title: "Aprašymas", field: "description"}, {title: "Nuotrauka(URL)", field: "image_url"}];
+        const fields = [
+            {title: "Pavadinimas", field: "title", validation: this.requiredValidation}, 
+            {title: "Aprašymas", field: "description"}, 
+            {title: "Nuotrauka(URL)", field: "image_url", validation: this.requiredValidation}
+        ];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="PRIDĖTI SKALBYKLĘ"/>
     }
 };

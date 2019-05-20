@@ -27,8 +27,14 @@ class WashingMachineReservationsCreate extends Component{
         this.props.history.push("/washingMachines");
     }
 
+    requiredValidation = (value) => {
+        return value ? true : false;
+    }
+
     render(){
-        const fields = [{title: "Rezervacijos pradžia", field: "reservation_start_time"}, {title: "Rezervacijos pabaiga", field: "reservation_end_time"}];
+        const fields = [
+            {title: "Rezervacijos pradžia", field: "reservation_start_time", validation: this.requiredValidation},
+            {title: "Rezervacijos pabaiga", field: "reservation_end_time", validation: this.requiredValidation}];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="REZERVUOTI SKALBYKLĘ"/>
     }
 };

@@ -28,9 +28,24 @@ class ShowerReservationsCreate extends Component{
         this.props.history.push("/showers");
     }
 
+    requiredValidation = (value) => {
+        return value ? true : false;
+    }
+
+    reservartionStartValidation = (value) => {
+        if(value){
+            const now = new Date();
+            return new Date(value).getMilliseconds() > now.getMilliseconds();
+        }
+        return false;
+    }
+
     render(){
         console.log(new Date("1997-05-06"))
-        const fields = [{title: "Rezervacijos pradžia", field: "reservation_start_time"}, {title: "Rezervacijos pabaiga", field: "reservation_end_time"}];
+        const fields = [
+            {title: "Rezervacijos pradžia", field: "reservation_start_time", validation: this.reservartionStartValidation},
+            {title: "Rezervacijos pabaiga", field: "reservation_end_time", validation: this.requiredValidation}
+        ];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="REZERVUOTI DUŠĄ"/>
     }
 };
