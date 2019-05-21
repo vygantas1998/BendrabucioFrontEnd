@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Form from "../../Form/Form";
 import {withRouter} from "react-router-dom";
 import { getCookie } from "../../../helpers";
+import { requiredValidation } from "../../../validation";
 
 class WashingMachineCreate extends Component{
     postData = async(api, data) => {
@@ -26,15 +27,11 @@ class WashingMachineCreate extends Component{
         this.props.history.push("/washingmachines");
     }
 
-    requiredValidation = (value) => {
-        return value ? true : false;
-    }
-
     render(){
         const fields = [
-            {title: "Pavadinimas", field: "title", validation: this.requiredValidation}, 
+            {title: "Pavadinimas", field: "title", validation: requiredValidation}, 
             {title: "Aprašymas", field: "description"}, 
-            {title: "Nuotrauka(URL)", field: "image_url", validation: this.requiredValidation}
+            {title: "Nuotrauka(URL)", field: "image_url", validation: requiredValidation}
         ];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="PRIDĖTI SKALBYKLĘ"/>
     }

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Form from "../../Form/Form";
 import {withRouter} from "react-router-dom";
 import { getCookie } from "../../../helpers";
+import { requiredValidation } from "../../../validation";
 
 class ShowerCreate extends Component{
     postData = async(api, data) => {
@@ -21,17 +22,16 @@ class ShowerCreate extends Component{
         }
     }
 
-    onSubmit = (data) => {
-        this.postData(this.props.api, data)
+    onSubmit = async(data) => {
+        await this.postData(this.props.api, data);
         this.props.history.push("/showers");
     }
 
-    requiredValidation = (value) => {
-        return value ? true : false;
-    }
-
     render(){
-        const fields = [{title: "Tipas", field: "type", validation: this.requiredValidation}, {title: "Aprašymas", field: "description"}];
+        const fields = [
+            {title: "Tipas", field: "type", validation: requiredValidation}, 
+            {title: "Aprašymas", field: "description"}
+        ];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="PRIDĖTI DUŠĄ"/>
     }
 };

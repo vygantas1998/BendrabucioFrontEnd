@@ -8,7 +8,6 @@ class SideMenu extends Component {
         const active = this.props.mobileSideBar ? " " + classes["nav-active"] : ""
         const links = 
             <ul className={classes["nav-links"]}>
-                <li><Link to="/">Pagrindinis</Link></li>
                 <li><Link to="/washingMachines">Skalbyklės</Link></li>
                 <li><Link to="/showers">Dušai</Link></li>
             </ul>;

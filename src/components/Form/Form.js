@@ -6,7 +6,7 @@ class Form extends Component{
     state = {
     }
 
-    invalid = [];
+    invalid = {};
 
     onChange = (event, field) => {
         this.setState({
@@ -17,12 +17,14 @@ class Form extends Component{
 
     onSubmit = () => {
         let isValid = true;
-        let invalid = [];
+        let invalid = {};
         this.props.fields.forEach(val => {
             if(isValid && typeof val.validation === "function"){
-                isValid = val.validation(this.state[val.field]);
+                isValid = val.validation(this.state[val.field], this.state);
                 if(!isValid){
-                    invalid.push(val.field);
+                    invalid[val.field] = false;
+                } else {
+                    delete invalid[val.field];
                 }
             }
         })
@@ -48,7 +50,13 @@ class Form extends Component{
                 return  <div key={i} className={classes.logo}>
                             <label htmlFor={val.field}>{val.title}</label>
                             <div className={classes.logo1}>
-                                <Input attr={val.attr} id={val.field} field={val.field} invalid={this.invalid.includes(val.field)} type={val.field.includes("time")?"date":""} onChange={this.onChange} value={this.state[val.field]}/>
+                                <Input attr={val.attr} 
+                                        id={val.field} 
+                                        field={val.field} 
+                                        invalid={this.invalid[val.field] ? true : false} 
+                                        type={val.field.includes("time")?"date":""} 
+                                        onChange={this.onChange} 
+                                        value={this.state[val.field]}/>
                             </div>
                         </div>
             }

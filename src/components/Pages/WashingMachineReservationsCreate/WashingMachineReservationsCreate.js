@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import Form from "../../Form/Form";
 import {withRouter} from "react-router-dom";
 import { getCookie } from "../../../helpers";
+import { reservartionEndValidation, requiredValidation } from "../../../validation";
 
 class WashingMachineReservationsCreate extends Component{
     postData = async(api, data) => {
@@ -27,14 +28,10 @@ class WashingMachineReservationsCreate extends Component{
         this.props.history.push("/washingMachines");
     }
 
-    requiredValidation = (value) => {
-        return value ? true : false;
-    }
-
     render(){
         const fields = [
-            {title: "Rezervacijos pradžia", field: "reservation_start_time", validation: this.requiredValidation},
-            {title: "Rezervacijos pabaiga", field: "reservation_end_time", validation: this.requiredValidation}];
+            {title: "Rezervacijos pradžia", field: "reservation_start_time", validation: requiredValidation},
+            {title: "Rezervacijos pabaiga", field: "reservation_end_time", validation: reservartionEndValidation}];
         return <Form fields={fields} submit={{text: "Patvirtinti", func: this.onSubmit}} title="REZERVUOTI SKALBYKLĘ"/>
     }
 };

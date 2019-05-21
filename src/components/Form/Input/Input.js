@@ -5,7 +5,6 @@ import classes from './Input.module.css';
 
 class Input extends Component{
     render(){
-        console.log(this.props.invalid);
         let input = "";
         switch(this.props.type)
         {

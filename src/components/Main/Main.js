@@ -32,7 +32,6 @@ class Main extends Component {
                         <SideMenu mobileSideBar={this.state.mobileSideBar} logout={this.props.logout}/>
                         <div className={classes.content}>
                             <Switch>
-                                <Route exact path="/" component={() => <div></div>}/>
                                 <Route path="/washingMachines" exact component={() => <WashingMachines api={api}/>} />
                                 <Route path="/showers" exact component={() => <Showers api={api}/>} />
                                 <Route path="/reservations/shower" exact component={() => <ShowerReservations api={api}/>} />
