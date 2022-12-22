@@ -5,7 +5,7 @@
   "dependencies": {
     "base-64": "^0.1.0",
     "graphql": "^14.1.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.24.0",
     "react": "^16.8.3",
     "react-datepicker": "^2.5.0",
